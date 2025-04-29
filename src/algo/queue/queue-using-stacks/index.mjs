@@ -25,6 +25,7 @@ MyQueue.prototype.push = function (x) {
 }
 
 /**
+ * 遵循先进先出原则
  * @return {number}
  */
 MyQueue.prototype.pop = function () {
@@ -59,3 +60,14 @@ MyQueue.prototype.empty = function () {
  * var param_3 = obj.peek()
  * var param_4 = obj.empty()
  */
+
+const q = new MyQueue()
+q.push(1)
+q.push(2)
+q.push(3)
+q.push(4)
+
+console.log(q.pop())
+console.log(q.pop())
+console.log(q.pop())
+console.log(q.empty())
