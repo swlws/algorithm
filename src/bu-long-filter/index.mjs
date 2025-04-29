@@ -22,7 +22,6 @@ class BloomFilter {
   getHashIndices(item) {
     const indices = []
     for (let i = 0; i < this.hashNum; i++) {
-      console.log(item + i, '--------')
       // 使用 murmurhash3 计算哈希值
       const hashValue = murmurhash3.x86.hash32(item + i)
       const index = hashValue % this.size
