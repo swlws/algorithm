@@ -1,7 +1,7 @@
 // 定义链表节点类
-class ListNode {
-  constructor(value) {
-    this.value = value
+export class ListNode {
+  constructor(val) {
+    this.val = val
     this.next = null
   }
 }
@@ -17,10 +17,10 @@ class SinglyLinkedList {
 
   /**
    * 追加元素到链表尾部
-   * @param {any} value - 要追加的元素值
+   * @param {any} val - 要追加的元素值
    */
-  append(value) {
-    const newNode = new ListNode(value)
+  append(val) {
+    const newNode = new ListNode(val)
     if (!this.head) {
       // 若链表为空，新节点即为头节点
       this.head = newNode
@@ -39,14 +39,14 @@ class SinglyLinkedList {
   /**
    * 在指定位置插入元素
    * @param {number} position - 插入位置，从 0 开始计数
-   * @param {any} value - 要插入的元素值
+   * @param {any} val - 要插入的元素值
    * @returns {boolean} - 插入成功返回 true，失败返回 false
    */
-  insert(position, value) {
+  insert(position, val) {
     if (position < 0 || position > this.length) {
       return false
     }
-    const newNode = new ListNode(value)
+    const newNode = new ListNode(val)
     if (position === 0) {
       // 在头部插入
       newNode.next = this.head
@@ -71,14 +71,14 @@ class SinglyLinkedList {
 
   /**
    * 查找指定值首次出现的位置
-   * @param {any} value - 要查找的值
+   * @param {any} val - 要查找的值
    * @returns {number} - 若找到返回位置索引，未找到返回 -1
    */
-  findIndex(value) {
+  findIndex(val) {
     let current = this.head
     let index = 0
     while (current) {
-      if (current.value === value) {
+      if (current.val === val) {
         return index
       }
       current = current.next
@@ -113,7 +113,7 @@ class SinglyLinkedList {
       previous.next = current.next
     }
     this.length--
-    return current.value
+    return current.val
   }
 
   /**
@@ -121,10 +121,10 @@ class SinglyLinkedList {
    * @param {Iterable} iterable - 可迭代对象，如数组
    * @returns {SinglyLinkedList} - 新的单链表实例
    */
-  static from(iterable) {
+  static fromArray(iterable) {
     const list = new SinglyLinkedList()
-    for (const value of iterable) {
-      list.append(value)
+    for (const val of iterable) {
+      list.append(val)
     }
     return list
   }
