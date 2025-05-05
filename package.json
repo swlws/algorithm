@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "murmurhash3js": "^3.0.1"
+  },
+  "imports": {
+    "@/*": "./src/*"
   }
 }

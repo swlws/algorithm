@@ -95,12 +95,14 @@ class PriorityQueue {
       ) {
         largerChildIndex = leftChildIndex
       }
+
       if (
         rightChildIndex <= lastIndex &&
         this.comparator(this.heap[rightChildIndex], this.heap[largerChildIndex])
       ) {
         largerChildIndex = rightChildIndex
       }
+
       if (largerChildIndex === nodeIndex) {
         break
       }
