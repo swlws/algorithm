@@ -18,6 +18,7 @@ var lowestCommonAncestor = function (root, p, q) {
 
   const left = lowestCommonAncestor(root.left, p, q)
   const right = lowestCommonAncestor(root.right, p, q)
+  console.log(root.value, left && left.value, right && right.value)
 
   if (left && right) return root
 
@@ -29,16 +30,30 @@ const node10 = new TreeNode(10)
 const node15 = new TreeNode(15)
 const node20 = new TreeNode(20)
 const node25 = new TreeNode(25)
+const node30 = new TreeNode(30)
+const node35 = new TreeNode(35)
+const node40 = new TreeNode(40)
+const node45 = new TreeNode(45)
 
-node10.left = node5
-node10.right = node20
-node20.left = node15
-node20.right = node25
+node5.left = node10
+node5.right = node15
+node10.left = node20
+node10.right = node25
+node15.left = node30
+node15.right = node35
+node20.left = node40
+node20.right = node45
 
 const binaryTree = new BinaryTree()
-binaryTree.root = node10
+binaryTree.root = node5
+
+// 树结构可视化，横向展示
+//         05
+//     10      15
+//   20  25  30  35
+// 40  45
 
 console.log(
   '二叉树中节点的最近公共祖先',
-  lowestCommonAncestor(binaryTree.root, node15, node25)
+  lowestCommonAncestor(binaryTree.root, node40, node45)
 )
