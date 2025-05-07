@@ -23,11 +23,25 @@ function validateBST(root) {
   return helper(root)
 }
 
+// const binaryTree = new BinaryTree()
+// binaryTree.root = new TreeNode(10)
+// binaryTree.root.left = new TreeNode(5)
+// binaryTree.root.right = new TreeNode(20)
+// binaryTree.root.right.left = new TreeNode(15)
+// binaryTree.root.right.right = new TreeNode(25)
+
+const node5 = new TreeNode(5)
+const node10 = new TreeNode(10)
+const node15 = new TreeNode(15)
+const node20 = new TreeNode(20)
+const node25 = new TreeNode(25)
+
+node10.left = node5
+node10.right = node20
+node20.left = node15
+node20.right = node25
+
 const binaryTree = new BinaryTree()
-binaryTree.root = new TreeNode(10)
-binaryTree.root.left = new TreeNode(5)
-binaryTree.root.right = new TreeNode(20)
-binaryTree.root.right.left = new TreeNode(15)
-binaryTree.root.right.right = new TreeNode(25)
+binaryTree.root = node10
 
 console.log('二叉搜索树', validateBST(binaryTree.root))
