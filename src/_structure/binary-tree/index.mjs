@@ -1,5 +1,5 @@
 // 定义二叉树节点类
-class TreeNode {
+export class TreeNode {
   constructor(value) {
     // 节点存储的值
     this.value = value
@@ -11,7 +11,7 @@ class TreeNode {
 }
 
 // 定义二叉树类
-class BinaryTree {
+export class BinaryTree {
   constructor() {
     // 根节点
     this.root = null
@@ -72,14 +72,14 @@ class BinaryTree {
 }
 
 // 使用示例
-const binaryTree = new BinaryTree()
-binaryTree.root = new TreeNode(10)
-binaryTree.root.left = new TreeNode(5)
-binaryTree.root.right = new TreeNode(20)
-binaryTree.root.right.left = new TreeNode(15)
-binaryTree.root.right.right = new TreeNode(25)
+// const binaryTree = new BinaryTree()
+// binaryTree.root = new TreeNode(10)
+// binaryTree.root.left = new TreeNode(5)
+// binaryTree.root.right = new TreeNode(20)
+// binaryTree.root.right.left = new TreeNode(15)
+// binaryTree.root.right.right = new TreeNode(25)
 
-console.log('前序遍历:', binaryTree.preOrderTraversal())
-console.log('中序遍历:', binaryTree.inOrderTraversal())
-console.log('后序遍历:', binaryTree.postOrderTraversal())
-console.log('层序遍历:', binaryTree.levelOrderTraversal())
+// console.log('前序遍历:', binaryTree.preOrderTraversal())
+// console.log('中序遍历:', binaryTree.inOrderTraversal())
+// console.log('后序遍历:', binaryTree.postOrderTraversal())
+// console.log('层序遍历:', binaryTree.levelOrderTraversal())
