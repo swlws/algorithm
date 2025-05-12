@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* CSS 媒体查询 */
+      @media (orientation: portrait) {
+        body {
+          background: #87ceeb;
+        }
+        .status::after {
+          content: '竖屏';
+        }
+      }
+      @media (orientation: landscape) {
+        body {
+          background: #90ee90;
+        }
+        .status::after {
+          content: '横屏';
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="status">当前方向：</div>
+
+    <script>
+      // JavaScript 检测
+      function updateOrientation() {
+        const statusDiv = document.querySelector('.status')
+        let orientationText = ''
+
+        if (screen.orientation) {
+          orientationText = screen.orientation.type.startsWith('portrait')
+            ? '竖屏'
+            : '横屏'
+        } else {
+          orientationText =
+            window.innerWidth > window.innerHeight ? '横屏' : '竖屏'
+        }
+
+        statusDiv.textContent = `当前方向：${orientationText}`
+      }
+
+      // 监听方向变化
+      window.addEventListener('orientationchange', updateOrientation)
+      window.addEventListener('resize', updateOrientation) // 备用
+      updateOrientation() // 初始化
+    </script>
+  </body>
+</html>
