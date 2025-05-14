@@ -7,7 +7,7 @@ var mySqrt = function (x) {
   let n = 0
   let preV = 0
 
-  while (true) {
+  while (preV <= x) {
     const v = (n + 1) * (n + 1)
     if (x >= preV && x < v) {
       return n
