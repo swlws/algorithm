@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ECharts 手动控制 axisPointer</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body style="height: 100%; margin: 0">
+    <div id="main" style="height: 100%"></div>
+    <script>
+      const chart = echarts.init(document.getElementById('main'))
+
+      const data = [
+        ['2025-05-01', 2300, 2295, 2350, 2280],
+        ['2025-05-02', 2295, 2305, 2330, 2290],
+        ['2025-05-03', 2305, 2280, 2310, 2270],
+        ['2025-05-04', 2280, 2330, 2340, 2260],
+      ]
+
+      const categoryData = data.map((item) => item[0])
+      const values = data.map((item) => item.slice(1))
+
+      const option = {
+        tooltip: {
+          // trigger: 'click',
+          trigger: 'axis',
+          // 必须为 click，否则 upAxisPointer 不生效
+          triggerOn: 'click',
+          axisPointer: {
+            type: 'cross',
+          },
+        },
+        xAxis: {
+          type: 'category',
+          data: categoryData,
+          axisPointer: {
+            show: true,
+            type: 'line',
+          },
+        },
+        yAxis: {
+          scale: true,
+        },
+        grid: {
+          left: '10%',
+          right: '10%',
+          bottom: '15%',
+        },
+        series: [
+          {
+            type: 'candlestick',
+            data: values,
+          },
+        ],
+      }
+
+      chart.setOption(option)
+
+      chart.getZr().on('mousemove', (params) => {
+        const { offsetX, offsetY } = params
+        chart.dispatchAction({
+          type: 'updateAxisPointer',
+          // currTrigger: 'mousemove',
+          x: offsetX,
+          y: offsetY,
+        })
+      })
+    </script>
+  </body>
+</html>
