@@ -26,7 +26,6 @@ export class Trie {
       }
       // 移动到下一个节点
       node = node.children[char]
-      node.isEnd = false
     }
     // 标记单词结尾
     node.isEnd = true
