@@ -55,3 +55,14 @@ const result = []
 stringPermute('12345', [], result)
 console.log(result)
 console.log(result.length)
+
+/**
+ * 全排列的数量 - 等于阶乘的值
+ * @param {*} n
+ * @returns
+ */
+function countPermute(n) {
+  if (n === 1) return 1
+  return n * countPermute(n - 1)
+}
+console.log('countPermute(5)', countPermute(5))
