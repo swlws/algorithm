@@ -9,18 +9,22 @@
         margin: 0;
         overflow: hidden;
       }
-      canvas {
-        display: block;
-        opacity: 0; /* 初始透明度为 0 */
-        transition: opacity 1s ease; /* 添加透明度过渡效果，时长 1 秒 */
-      }
     </style>
   </head>
   <body>
-    <canvas id="fireworks"></canvas>
     <script>
       ;(function () {
-        const canvas = document.getElementById('fireworks')
+        // 动态创建 canvas 元素
+        const canvas = document.createElement('canvas')
+        canvas.id = 'fireworks'
+        Object.assign(canvas.style, {
+          display: 'block',
+          opacity: 0, // 初始透明度为 0
+          transition: 'opacity 1s ease', // 添加透明度过渡效果，时长 1 秒
+          'pointer-events': 'none'
+        })
+        document.body.appendChild(canvas)
+
         const ctx = canvas.getContext('2d')
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
@@ -35,7 +39,7 @@
             this.x = Math.random() * canvas.width
             this.y = canvas.height
             this.targetY = Math.random() * canvas.height * 0.3
-            this.speed = Math.random() * 4 + 2
+            this.speed = Math.random() * 6 + 4 // 增加速度范围
             this.color = `hsl(${Math.random() * 360}, 100%, 50%)`
           }
 
