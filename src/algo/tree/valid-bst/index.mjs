@@ -1,4 +1,5 @@
 import { BinaryTree, TreeNode } from '../../../_structure/binary-tree/index.mjs'
+// import { BinaryTree, TreeNode } from '@/_structure/binary-tree/index.mjs'
 
 /**
  * 校验二叉搜索树
