@@ -1,3 +1,21 @@
+function getAll(arr, rt = [], path = []) {
+  if (arr.length === 0) {
+    rt.push([...path])
+    return
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    path.push(arr[i])
+    getAll(arr.slice(i + 1), rt, path)
+    path.pop()
+  }
+}
+
+let arr = [1, 2, 3]
+let rt = []
+getAll(arr, rt)
+console.log(rt)
+
 /**
  * 数字全排列
  *     使用回溯算法，遍历所有可能的排列组合
