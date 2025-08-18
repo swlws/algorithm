@@ -25,3 +25,19 @@ var climbStairs = function (n) {
 for (let i = 0; i < 10; i++) {
   console.log(climbStairs(i))
 }
+
+var climbStairsV2 = function (n, memo = {}) {
+  if (n == 0) return 0
+  if (n == 1) return 1
+  if (n == 2) return 2
+
+  if (memo[n]) return memo[n]
+
+  memo[n] = climbStairsV2(n - 1, memo) + climbStairsV2(n - 2, memo)
+  return memo[n]
+}
+
+for (let i = 0; i < 10; i++) {
+  console.log(i, '-', climbStairs(i))
+  console.log(i, '-', climbStairsV2(i))
+}
